@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>AnonVPN</title>
+</head>
+<body>
+  <div class=".diagram">
+    <div class="content diagram">
+      <h1 id="diagram-of-anonvpn-client-connection-home">Diagram of AnonVPN
+      Client Connection (<a href="/">home</a>)</h1>
+      <h2 id="complete-connection-obfuscated-by-i2p">Complete Connection
+      obfuscated by I2P</h2>
+      <pre><code>          -+       +----_VPN Server_
+     +--+ /|\     / \
+     |\  / | +---+   +
+     \ \+--+- \ / \ /
+      | \  | \-+---+
+      +--+ |  /|  /   &lt;--_I2P Network_
+       \  \|/  | /
+        +--+---+-
+        |
+        |_VPN Client_</code></pre>
+    </div>
+    <div class="content diagram stepone">
+      <h2 id=
+      "first-the-vpn-client-ensures-that-i2p-has-been-started-and-connected">
+      First, the VPN Client ensures that I2P has been started and
+      connected:</h2>
+      <pre><code>        +_Client's I2P Router_
+        |
+        |_VPN Client_</code></pre>
+    </div>
+    <div class="content diagram steptwo">
+      <h2 id="next-the-i2p-network-establishes-connections-to-i2p-peers">Next,
+      the I2P Network establishes connections to I2P Peers</h2>
+      <pre><code>          -+       +
+     +--+ /|\     / \
+     |\  / | +---+   +
+     \ \+--+- \ / \ /
+      | \  | \-+---+
+      +--+ |  /|  /   &lt;--_I2P Network_
+       \  \|/  | /
+        +--+---+-
+        |
+        |_VPN Client_</code></pre>
+    </div>
+    <div class="content diagram stepthree">
+      <h2 id=
+      "then-the-client-creates-a-tunnel-pool-with-a-pre-determined-number-of-hops">
+      Then, The client creates a tunnel pool with a pre-determined number of
+      hops</h2>
+      <pre><code>               +---_I2P Hop_
+              /   &lt;--_I2P Network_
+            /
+        +--+
+        |
+        |_VPN Client_</code></pre>
+    </div>
+    <div class="content diagram stepfour">
+      <h2 id="finally-it-connects-to-an-available-vpn-server">Finally, it
+      connects to an available VPN Server</h2>
+      <pre><code>                   +----_VPN Server_
+                  /
+                 /
+                /
+               +---_I2P Hop_
+              /   &lt;--_I2P Network_
+            /
+        +--+
+        |
+        |_VPN Client_</code></pre>
+    </div>
+  </div>
+</body>
+</html>
