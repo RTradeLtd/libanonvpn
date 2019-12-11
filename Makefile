@@ -346,7 +346,9 @@ dependencies:
 	sudo apt install dos2unix -y
 	sudo apt install nsis -y
 	sudo apt install rasqal -y
+	sudo apt install libgtk-3-dev libwebkit2gtk-4.0-dev build-essential
 	go get -u github.com/hallazzang/syso/...
+	go get golang.org/x/mobile/cmd/gomobile
 
 checkinstall:
 	checkinstall --type=debian \
