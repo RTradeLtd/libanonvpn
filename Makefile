@@ -146,7 +146,7 @@ clean: fmt clean-pkg
 	rm -f cmd/anonvpn/anonvpn*
 	go clean ./cmd/anonvpn
 
-doc: head example about help
+doc: head example help
 	grep -v ':::' README.0.md > README.md
 
 head:
