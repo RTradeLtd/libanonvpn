@@ -71,10 +71,12 @@ android:
 		-o cmd/anonvpn/anonvpn.apk \
 		./cmd/anonvpn/
 
+delreseed:
+	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t reseed; true
+
 reseed: installer updater
 	rm -f etc/anonvpn/reseed.zip
 	wget -O etc/anonvpn/reseed.zip http://localhost:7657/createreseed
-	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t reseed; true
 	gothub release -s $(GITHUB_TOKEN) -p -u $(USER_GH) -r go-anonvpn -t reseed -d "Privacy-Enhanced VPN - $(LATEST_DESC)"
 	gothub upload -s $(GITHUB_TOKEN) -f "etc/anonvpn/reseed.zip" -n "reseed.zip" -u $(USER_GH) -r go-anonvpn -t reseed -l "Reseed File" -R
 	gothub upload -s $(GITHUB_TOKEN) -f "i2pinstall.exe" -n "i2pinstall.exe" -u $(USER_GH) -r go-anonvpn -t reseed -l "I2P Dev Build" -R
