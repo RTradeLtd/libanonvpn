@@ -9,9 +9,9 @@ import (
 )
 
 import (
-	samforwardervpn "github.com/RTradeLtd/go-anonvpn/client"
-	samtunnelhandler "github.com/RTradeLtd/go-anonvpn/ctrl"
-	samforwardervpnserver "github.com/RTradeLtd/go-anonvpn/server"
+	samforwardervpn "github.com/RTradeLtd/libanonvpn/client"
+	samtunnelhandler "github.com/RTradeLtd/libanonvpn/ctrl"
+	samforwardervpnserver "github.com/RTradeLtd/libanonvpn/server"
 	checki2p "github.com/eyedeekay/checki2cp"
 	i2pbrowserproxy "github.com/eyedeekay/httptunnel/multiproxy"
 	"github.com/eyedeekay/outproxy"
