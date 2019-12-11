@@ -12,10 +12,15 @@ Installation
 -------------
 
   - To install the dependencies needed to build this locally run
-   make dependencies' which will install 'nsis', and 'unix2dos'
-   utilities.
+   `make dependencies` which will install:
+    - `nsis`
+    - `unix2dos`
+    - `libgtk-3-dev`
+    - `libwebkit2gtk-4.0-dev`
+    - `build-essential`
+    - `gomobile` which can be installed with `go get golang.org/x/mobile/cmd/gomobile`
   - You will also need a valid installation of 'go 1.12.x'
-  - To build thd binaries run 'make'
+  - To build thd binaries run `make`
 
 
 Example Usage
