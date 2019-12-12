@@ -168,11 +168,9 @@ head:
 	@echo "Installation" | tee -a README.0.md
 	@echo "-------------" | tee -a README.0.md
 	@echo "" | tee -a README.0.md
-	@echo "  - To install the dependencies needed to build this locally run" | tee -a README.0.md
-	@echo "   make dependencies' which will install 'nsis', and 'unix2dos'" | tee -a README.0.md
-	@echo "   utilities."  | tee -a README.0.md
-	@echo "  - You will also need a valid installation of 'go 1.12.x'" | tee -a README.0.md
-	@echo "  - To build thd binaries run 'make'" | tee -a README.0.md
+	@echo "For now, the recommended way to install is with \`\`\`go get\`\`\`" | tee -a README.0.md
+	@echo "" | tee -a README.0.md
+	@echo '       go get -u -d -tags cli github.com/RTradeLtd/libanonvpn/cmd/anonvpn' | tee -a README.0.md
 	@echo "" | tee -a README.0.md
 	@echo ":::" | tee -a README.0.md
 	@echo "" | tee -a README.0.md

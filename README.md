@@ -13,7 +13,7 @@ Installation
 
 For now, the recommended way to install is with ```go get```
 
-        go get -u -d -tags cli github.com/RTradeLtd/libanonvpn/cmd/anonvpn
+       go get -u -d -tags cli github.com/RTradeLtd/libanonvpn/cmd/anonvpn
 
 
 Example Usage
@@ -87,7 +87,7 @@ Usage of ./cmd/anonvpn/anonvpn:
     	key for encrypted leaseset (default "none")
   -littleboss string
     	instruct the littleboss:
-
+    	
     	start:		start and manage this process using service name "name"
     	stop:		signal the littleboss to shutdown the process
     	status:		print statistics about the running littleboss
