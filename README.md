@@ -7,21 +7,23 @@ Daemon, web client, and terminal client. This is an automatically
 configuring, automatically deploying, automatically multihopping
 pseudonymous VPN.
 
-
 Installation
 -------------
 
+For now, the recommended way to install is with ```go get```
+
+       go get -u -d -tags cli github.com/RTradeLtd/libanonvpn/cmd/anonvpn
+
+Development
+-----------
+
   - To install the dependencies needed to build this locally run
    `make dependencies` which will install:
-    - `nsis`
-    - `unix2dos`
     - `libgtk-3-dev`
     - `libwebkit2gtk-4.0-dev`
     - `build-essential`
     - `gomobile` which can be installed with `go get golang.org/x/mobile/cmd/gomobile`
   - You will also need a valid installation of 'go 1.12.x'
-  - To build thd binaries run `make`
-
 
 Example Usage
 -------------

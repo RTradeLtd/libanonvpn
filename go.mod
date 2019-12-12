@@ -1,4 +1,4 @@
-module github.com/RTradeLtd/go-anonvpn
+module github.com/RTradeLtd/libanonvpn
 
 go 1.12
 
