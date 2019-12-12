@@ -8,7 +8,7 @@ import (
 )
 
 import (
-	samtunnelhandler "github.com/RTradeLtd/go-anonvpn/ctrl"
+	samtunnelhandler "github.com/RTradeLtd/libanonvpn/ctrl"
 	i2pbrowserproxy "github.com/eyedeekay/httptunnel/multiproxy"
 )
 
