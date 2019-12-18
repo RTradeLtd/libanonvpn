@@ -13,8 +13,8 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/eyedeekay/canal/simplify"
-	"github.com/eyedeekay/checki2cp"
+	//"github.com/eyedeekay/canal/simplify"
+	//"github.com/eyedeekay/checki2cp"
 	i2ptunconf "github.com/eyedeekay/sam-forwarder/config"
 	"github.com/eyedeekay/sam-forwarder/hashhash"
 	sfi2pkeys "github.com/eyedeekay/sam-forwarder/i2pkeys"
@@ -340,7 +340,7 @@ func (s *SAMClientVPN) Serve() error {
 			return err
 		}
 	}*/
-	if check, err := checki2p.CheckI2PUserName(); err == nil {
+	/*if check, err := checki2p.CheckI2PUserName(); err == nil {
 		log.Println("firewall: Tagging", check, "user firewall rules")
 		if err := firewall.Setup(localaddr.(*net.IPAddr).IP, remoteaddr.(*net.IPAddr).IP); err != nil {
 			log.Println("firewall: Error:", err.Error())
@@ -362,7 +362,7 @@ func (s *SAMClientVPN) Serve() error {
 	} else {
 		log.Println("firewall: Error: user rule, user not found.")
 		return err
-	}
+	}*/
 	s.Tunnel.Run(ctx)
 	for {
 
