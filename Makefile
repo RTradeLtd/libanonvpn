@@ -72,15 +72,15 @@ android:
 		./cmd/anonvpn/
 
 delreseed:
-	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t reseed; true
+	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r libanonvpn -t reseed; true
 
 reseed: installer updater
 	rm -f etc/anonvpn/reseed.zip
 	wget -O etc/anonvpn/reseed.zip http://localhost:7657/createreseed
-	gothub release -s $(GITHUB_TOKEN) -p -u $(USER_GH) -r go-anonvpn -t reseed -d "Privacy-Enhanced VPN - $(LATEST_DESC)"
-	gothub upload -s $(GITHUB_TOKEN) -f "etc/anonvpn/reseed.zip" -n "reseed.zip" -u $(USER_GH) -r go-anonvpn -t reseed -l "Reseed File" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "i2pinstall.exe" -n "i2pinstall.exe" -u $(USER_GH) -r go-anonvpn -t reseed -l "I2P Dev Build" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "i2pupdate.zip" -n "i2pupdate.zip" -u $(USER_GH) -r go-anonvpn -t reseed -l "I2P Dev Build updater.zip" -R
+	gothub release -s $(GITHUB_TOKEN) -p -u $(USER_GH) -r libanonvpn -t reseed -d "Privacy-Enhanced VPN - $(LATEST_DESC)"
+	gothub upload -s $(GITHUB_TOKEN) -f "etc/anonvpn/reseed.zip" -n "reseed.zip" -u $(USER_GH) -r libanonvpn -t reseed -l "Reseed File" -R
+	gothub upload -s $(GITHUB_TOKEN) -f "i2pinstall.exe" -n "i2pinstall.exe" -u $(USER_GH) -r libanonvpn -t reseed -l "I2P Dev Build" -R
+	gothub upload -s $(GITHUB_TOKEN) -f "i2pupdate.zip" -n "i2pupdate.zip" -u $(USER_GH) -r libanonvpn -t reseed -l "I2P Dev Build updater.zip" -R
 
 syso:
 	syso -o cmd/anonvpn/out.syso
@@ -107,7 +107,7 @@ china-winstall: china winlicense tuntap
 fmt: go-fmt
 
 deps:
-	go get -u github.com/RTradeLtd/go-anonvpn/cmd/anonvpn
+	go get -u github.com/RTradeLtd/libanonvpn/cmd/anonvpn
 
 setcap:
 	sudo setcap "cap_net_admin+eip cap_net_bind_service+eip cap_net_raw+eip" /usr/bin/anonvpn
@@ -144,7 +144,7 @@ clean: fmt clean-pkg
 	find . -name '*.i2pkeys' -exec rm -v {} \;
 	find . -name '*.log' -exec rm -v {} \;
 	find . -name '*.syso' -exec rm -v {} \;
-	rm -vfr *.exe .geti2p.url backup*.tgz description-pak go-anonvpn
+	rm -vfr *.exe .geti2p.url backup*.tgz description-pak libanonvpn
 	rm -f cmd/anonvpn/anonvpn*
 	go clean ./cmd/anonvpn
 
@@ -154,7 +154,7 @@ doc: head example help
 head:
 	@echo "" | tee README.0.md
 	@echo "::: {.content .toplevel}" | tee -a README.0.md
-	@echo "go-anonvpn ([home](/))" | tee -a README.0.md
+	@echo "libanonvpn ([home](/))" | tee -a README.0.md
 	@echo "======================" | tee -a README.0.md
 	@echo "" | tee -a README.0.md
 	@echo "Library for providing and connecting to VPN's over the I2P network." | tee -a README.0.md
@@ -180,20 +180,20 @@ about:
 	@echo "Turn-Key Privacy Advantages" | tee -a README.0.md
 	@echo "---------------------------" | tee -a README.0.md
 	@echo "" | tee -a README.0.md
-	@echo "  - **Trustless Multihopping:** go-anonvpn uses the I2P network to negotiate" | tee -a README.0.md
+	@echo "  - **Trustless Multihopping:** libanonvpn uses the I2P network to negotiate" | tee -a README.0.md
 	@echo "   encrypted, peer-to-peer tunnels which are used to establish the VPN hops" | tee -a README.0.md
 	@echo "   without revealing the true IP address of any tunnel participant to any" | tee -a README.0.md
 	@echo "   other participant.This is in contrast to Wireguard, where you can multihop," | tee -a README.0.md
 	@echo "   but the configuration requires you to coordinate with multiple providers," | tee -a README.0.md
 	@echo "   we can simply do it automatically." | tee -a README.0.md
-	@echo "  - **Pseudonymous Subscription:** go-anonvpn integrates a multi-wallet which" | tee -a README.0.md
+	@echo "  - **Pseudonymous Subscription:** libanonvpn integrates a multi-wallet which" | tee -a README.0.md
 	@echo "   is your virtual subscription. Pay for the VPN as-you-go by transferring" | tee -a README.0.md
 	@echo "   money to the VPN wallet, and use a method similar to electrum's \"Change\"" | tee -a README.0.md
 	@echo "   addresses to separate your payment identities from the rest of your crypto" | tee -a README.0.md
 	@echo "   usage. This is so we can't correlate your specifidc traffic to your payment." | tee -a README.0.md
 	@echo "   Also, pay as you go. Your subscription is the content of your wallet, never" | tee -a README.0.md
 	@echo "   pay for more time than you need." | tee -a README.0.md
-	@echo "  - **Resistant to Analysis:** go-anonvpn inherits the traffic-obfuscation and" | tee -a README.0.md
+	@echo "  - **Resistant to Analysis:** libanonvpn inherits the traffic-obfuscation and" | tee -a README.0.md
 	@echo "   encryption properties of the underlying I2P network, making it nearly" | tee -a README.0.md
 	@echo "   impossible to identify and block usage of the VPN. With the assistance" | tee -a README.0.md
 	@echo "   of \"helper\" applications, it can be impossible to block on even the" | tee -a README.0.md
@@ -291,10 +291,10 @@ pdf:
 all: fmt build doc
 
 docker-server: build
-	docker build -f server.Dockerfile -t eyedeekay/go-anonvpn:server .
+	docker build -f server.Dockerfile -t eyedeekay/libanonvpn:server .
 
 clean-server:
-	docker rm -f go-anonvpn-server; true
+	docker rm -f libanonvpn-server; true
 
 run-server: clean-server
 	docker run -it \
@@ -302,15 +302,15 @@ run-server: clean-server
 		--cap-add NET_ADMIN \
 		--cap-add NET_RAW \
 		--cap-add NET_BIND_SERVICE \
-		--name go-anonvpn-server \
+		--name libanonvpn-server \
 		--privileged \
 		-p 127.0.0.1:7959:7959 \
-		eyedeekay/go-anonvpn:server
+		eyedeekay/libanonvpn:server
 
 docker: docker-server run-server
 
 docker-client: build
-	docker build -f client.Dockerfile -t eyedeekay/go-anonvpn:client .
+	docker build -f client.Dockerfile -t eyedeekay/libanonvpn:client .
 
 run-client:
 	docker run --rm -it \
@@ -318,10 +318,10 @@ run-client:
 		--cap-add NET_ADMIN \
 		--cap-add NET_RAW \
 		--cap-add NET_BIND_SERVICE \
-		--name go-anonvpn-client \
+		--name libanonvpn-client \
 		--privileged \
 		-p 127.0.0.1:7959:7959 \
-		 eyedeekay/go-anonvpn:client
+		 eyedeekay/libanonvpn:client
 
 # run standard go tooling for better readability
 .PHONY: go-tidy
@@ -352,7 +352,7 @@ checkinstall:
 	checkinstall --type=debian \
 		--install=no \
 		--fstrans=yes \
-		--pkgname=go-anonvpn \
+		--pkgname=libanonvpn \
 		--pkgversion=$(VERSION) \
 		--pkgrelease=testing \
 		--pkggroup=net \
@@ -366,7 +366,7 @@ checkinstall:
 		--default
 
 docker-clientfile:
-	docker cp go-anonvpn-server:/opt/go/src/github.com/RTradeLtd/go-anonvpn/cvpnserver.ini .
+	docker cp libanonvpn-server:/opt/go/src/github.com/RTradeLtd/libanonvpn/cvpnserver.ini .
 
 clean-tunsocks:
 	rm -rf tunsocks
@@ -390,9 +390,9 @@ clean-pkg:
 	rm -f *.tgz *.tar.gz *.exe *.deb
 
 tarball: all
-	rm -f ../go-anonvpn_*.tar.gz
-	tar --exclude=".git" --exclude=backup*.tgz -czf ../go-anonvpn_$(VERSION).tar.gz .
-	mv ../go-anonvpn_$(VERSION).tar.gz .
+	rm -f ../libanonvpn_*.tar.gz
+	tar --exclude=".git" --exclude=backup*.tgz -czf ../libanonvpn_$(VERSION).tar.gz .
+	mv ../libanonvpn_$(VERSION).tar.gz .
 
 STABLE_DESC=This release has undergone testing by the developers and is recommended for most users. It is always a copy of the most recent tagged release.
 LATEST_DESC=This release is always built from the latest buildable code and may contain bugs.
@@ -413,4 +413,7 @@ host:
 	cd docs && make host
 
 sed:
-	find . -name '*.go' -exec sed -i 's|github.com/RTradeLtd/go-anonvpn/wallet|github.com/RTradeLtd/davpn-gateways/wallet|g' {} \;
+	find . -name '*.go' -exec sed -i 's|github.com/RTradeLtd/libanonvpn/wallet|github.com/RTradeLtd/davpn-gateways/wallet|g' {} \;
+
+find:
+	find . -name '*.go' -exec grep canal {} \;
