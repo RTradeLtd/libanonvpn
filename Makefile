@@ -380,8 +380,8 @@ socks: clean-tunsocks
 		./configure && \
 		make
 
-DEMOVERSION=0.0.995-RTRADE-DEMO
-VERSION=0.0.995
+DEMOVERSION=0.32.01
+VERSION=0.32.01
 #USER_GH="eyedeekay"
 USER_GH="RTradeLtd"
 export ANDROID_NDK_HOME=$(HOME)/Workspace/android-ndk-r19c
@@ -397,35 +397,12 @@ tarball: all
 STABLE_DESC=This release has undergone testing by the developers and is recommended for most users. It is always a copy of the most recent tagged release.
 LATEST_DESC=This release is always built from the latest buildable code and may contain bugs.
 
-beta:
-	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t beta 2> /dev/null; true
-	gothub release -s $(GITHUB_TOKEN) -p -u $(USER_GH) -r go-anonvpn -t beta -d "Privacy-Enhanced VPN" 2> /dev/null; true
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer.exe" -n "go-anonvpn-installer.exe" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN Beta (Windows)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer-repressed.exe" -n "go-anonvpn-installer-repressed.exe" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN (Windows for Repressive Regimes)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION)-testing_amd64.deb" -n "go-anonvpn-testing_amd64.deb" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN (Debian-based Linux)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn.apk" -n "go-anonvpn.apk" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN (Android)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn-osx" -n "go-anonvpn.osx.bin" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN (OSX)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION).tar.gz" -n "go-anonvpn.tar.gz" -u $(USER_GH) -r go-anonvpn -t beta -l "Privacy-Enhanced VPN (tar.gz)" -R
-
 version:
 	gothub release -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -d "Privacy-Enhanced VPN"
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer-repressed.exe" -n "go-anonvpn-installer-repressed.exe" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (Windows for Repressive Regimes)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer.exe" -n "go-anonvpn-installer.exe" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (Windows)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION)-testing_amd64.deb" -n "go-anonvpn-testing_amd64.deb" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (Debian-based Linux)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn-osx" -n "go-anonvpn.osx.bin" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (OSX)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn.apk" -n "go-anonvpn.apk" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (Android)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION).tar.gz" -n "go-anonvpn.tar.gz" -u $(USER_GH) -r go-anonvpn -t v$(VERSION) -l "Privacy-Enhanced VPN (tar.gz)" -R
 
 latest:
 	gothub delete -s $(GITHUB_TOKEN) -u $(USER_GH) -r go-anonvpn -t latest; true
 	gothub release -s $(GITHUB_TOKEN) -p -u $(USER_GH) -r go-anonvpn -t latest -d "Privacy-Enhanced VPN - $(LATEST_DESC)"
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer.exe" -n "go-anonvpn-installer.exe" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (Windows)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn-installer-repressed.exe" -n "go-anonvpn-installer-repressed.exe" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (Windows for Repressive Regimes)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION)-testing_amd64.deb" -n "go-anonvpn-testing_amd64.deb" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (Debian-based Linux)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn-osx" -n "go-anonvpn.osx.bin" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (OSX)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "cmd/anonvpn/anonvpn.apk" -n "go-anonvpn.apk" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (Android)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "go-anonvpn_$(VERSION).tar.gz" -n "go-anonvpn.tar.gz" -u $(USER_GH) -r go-anonvpn -t latest -l "Privacy-Enhanced VPN (tar.gz)" -R
-	gothub upload -s $(GITHUB_TOKEN) -f "etc/anonvpn/reseed.zip" -n "Reseed" -u $(USER_GH) -r go-anonvpn -t latest -l "Reseed File" -R
 
 tag: version latest
 
