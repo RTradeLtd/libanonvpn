@@ -4,20 +4,17 @@ go 1.12
 
 require (
 	crawshaw.io/littleboss v0.0.0-20190317185602-8957d0aedcce
-	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/eyedeekay/accessregister v0.0.0-20190908214045-2f83369c289b
-	github.com/eyedeekay/canal v0.0.25
 	github.com/eyedeekay/checki2cp v0.0.0-20191027173419-138f1b4882b2
 	github.com/eyedeekay/go-i2cp v0.0.0-20190711020517-c0bce4e7b750 // indirect
 	github.com/eyedeekay/httptunnel v0.0.0-20191017011116-3b144b52941f
 	github.com/eyedeekay/outproxy v0.0.0-20190908174238-22bd71d43733
 	github.com/eyedeekay/portcheck v0.0.0-20190218044454-bb8718669680
-	github.com/eyedeekay/sam-forwarder v0.32.1-0.20190928041036-d2f767dbe008
-	github.com/eyedeekay/sam3 v0.0.0-20191022062657-a12f9ba498dd
+	github.com/eyedeekay/sam-forwarder v0.32.1
+	github.com/eyedeekay/sam3 v0.32.1
 	github.com/eyedeekay/udptunnel v0.0.92
 	github.com/justinas/nosurf v0.0.0-20190416172904-05988550ea18
 	github.com/kardianos/service v1.0.0
-	github.com/kr/pretty v0.1.0 // indirect
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/zieckey/goini v0.0.0-20180118150432-0da17d361d26
 	github.com/zserge/lorca v0.1.8
