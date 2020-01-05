@@ -1,4 +1,3 @@
-anonvpn.exe.manifest
 clients.config
 codecov.yml
 cvpnserver.ini
@@ -22,7 +21,6 @@ README.md
 README.pdf
 RELEASE.md
 rtrade-testserver.ini
-syso.json
 wintun32.msi
 wintun.msi
 Makefile
