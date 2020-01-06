@@ -1,0 +1,138 @@
+language: go
+
+go:
+- 1.13
+
+services:
+- docker
+
+dist: xenial
+os: linux
+
+addons:
+  apt: ##Thoose packages comes from xenial repos
+    packages:
+    - dos2unix
+    - nsis
+    - librasqal3
+    - librasqal3-dev
+    - libgtk-3-dev
+    - libwebkit2gtk-4.0-dev
+    - build-essential # probably useless
+    dist: xenial
+stages:
+  - compile
+   
+jobs:
+  include:
+## Unix jobs
+    - stage: compile
+      name: "Linux Static"
+      env:
+      - MAKE_COMMAND="build"
+    - name: "Linux Shared"
+      env:
+        - MAKE_COMMAND="nostatic"
+    - name: "OSX"
+      env:
+        - MAKE_COMMAND="osx"
+## Windows Jobs
+    - name: "Docker Server"
+      env:
+        - MAKE_COMMAND=docker-server
+    - name: "Windows"
+      env:
+        - MAKE_COMMAND=windows
+      before_script:
+        - go get -u github.com/hallazzang/syso/...
+    - name: "Windows 32"
+      env:
+        - MAKE_COMMAND=windows32
+      before_script:
+        - go get -u github.com/hallazzang/syso/...
+## Android Jobs
+# Currently travis for building android uses trusty distro and apt packages don't seem to be available
+# FIXME fetch dependencies via curl rather than apt for trusty distro or wait for travis to enable android builds on xenial.
+    # - name: "Android 4.x"
+      # language: android
+      # env:
+        # - ARCH=android MIN_NAL=14 MAX_NAL=20
+        # - MAKE_COMMAND=android
+      # before_script:
+        # - go get golang.org/x/mobile/cmd/gomobile
+        # - gomobile init
+      # android:
+        # components:
+          # - tools
+          # - platform-tools
+          # - build-tools-27.0.3
+          # - android-27
+    # - name: "Android 5.x"
+      # language: android
+      # dist: trusty
+      # env:
+        # - ARCH=android MIN_NAL=21 MAX_NAL=22
+        # - MAKE_COMMAND=android
+      # before_script:
+        # - go get golang.org/x/mobile/cmd/gomobile
+        # - gomobile init
+      # android:
+        # components:
+          # - tools
+          # - platform-tools
+          # - build-tools-27.0.3
+          # - android-27
+    # - name: "Android 6.x 7.x"
+      # language: android
+      # dist: trusty
+      # env:
+        # - ARCH=android MIN_NAL=23 MAX_NAL=25
+        # - MAKE_COMMAND=android
+      # before_script:
+        # - go get golang.org/x/mobile/cmd/gomobile
+        # - gomobile init
+      # android:
+        # components:
+          # - tools
+          # - platform-tools
+          # - build-tools-27.0.3
+          # - android-27
+    # - name: "Android 8.x"
+      # language: android
+      # dist: trusty
+      # env:
+        # - ARCH=android MIN_NAL=26 MAX_NAL=27
+        # - MAKE_COMMAND=android
+      # before_script:
+        # - go get golang.org/x/mobile/cmd/gomobile
+        # - gomobile init
+      # android:
+        # components:
+          # - tools
+          # - platform-tools
+          # - build-tools-27.0.3
+          # - android-27
+    # - name: "Android 9.x"
+      # language: android
+      # dist: trusty
+      # env:
+        # - ARCH=android MIN_NAL=28 MAX_NAL=28
+        # - MAKE_COMMAND=android
+      # before_script:
+        # - go get golang.org/x/mobile/cmd/gomobile
+        # - gomobile init
+      # android:
+        # components:
+          # - tools
+          # - platform-tools
+          # - build-tools-27.0.3
+          # - android-27
+          
+branches:
+  only:
+  - master
+  except:
+  - develop
+
+script:
+  - make $MAKE_COMMAND
