@@ -1,5 +1,5 @@
 
-go-anonvpn ([home](/))
+libanonvpn ([home](/))
 ======================
 
 Library for providing and connecting to VPN's over the I2P network.
