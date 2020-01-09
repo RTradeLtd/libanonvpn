@@ -2,6 +2,8 @@
 go-anonvpn ([home](/))
 ======================
 
+Lead Maintainer: [eyedeekay](https://github.com/eyedeekay)
+
 Library for providing and connecting to VPN's over the I2P network.
 Daemon, web client, and terminal client. This is an automatically
 configuring, automatically deploying, automatically multihopping
