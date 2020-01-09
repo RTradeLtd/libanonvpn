@@ -24,3 +24,8 @@ rtrade-testserver.ini
 wintun32.msi
 wintun.msi
 Makefile
+cmd/anonvpn/anonvpn
+
+cmd/anonvpn/anonvpn-gui
+
+cmd/anonvpn/anonvpn-nostatic
