@@ -104,8 +104,6 @@ Usage of ./cmd/anonvpn/anonvpn:
     	Set outbound tunnel backup quantity(0 to 5). (default 3)
   -outlength int
     	Set outbound tunnel length(0 to 7). (default 1)
-  -outproxy string
-    	Configure a SOCKS outproxy with your wallet proxy(i2p mode)
   -outquantity int
     	Set outbound tunnel quantity(0 to 15). (default 5)
   -outvariance int
@@ -116,20 +114,14 @@ Usage of ./cmd/anonvpn/anonvpn:
     	Use saved file and persist tunnel(If false, tunnel will not persist after program is stopped.
   -pk string
     	private key for encrypted leaseset (default "none")
-  -proxy string
-    	Proxy to use for the wallet connection.(Tor, i2p, or host:port). (default "i2p")
   -psk string
     	private signing key for encrypted leaseset (default "none")
-  -rate int
-    	Set a payment requirement to authorize new clients
   -reduceidle
     	Reduce tunnel quantity when idle for a specified time(true or false).
   -reduceidlequantity int
     	Reduce idle tunnel quantity to X (0 to 5). (default 3)
   -reduceidletime int
     	Reduce tunnel quantity after X (milliseconds). (default 600000)
-  -requirepass string
-    	Require a password to request service information.
   -samhost string
     	SAM host (default "127.0.0.1")
   -samport string
