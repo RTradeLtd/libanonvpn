@@ -1,5 +1,5 @@
 
-go-anonvpn ([home](/))
+libanonvpn ([home](/))
 ======================
 
 Lead Maintainer: [eyedeekay](https://github.com/eyedeekay)
