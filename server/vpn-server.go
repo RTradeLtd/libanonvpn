@@ -12,11 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
-
-	//	"time"
-
 	whitelister "github.com/eyedeekay/accessregister/auth"
-	//"github.com/eyedeekay/canal"
 	i2ptunconf "github.com/eyedeekay/sam-forwarder/config"
 	"github.com/eyedeekay/sam-forwarder/hashhash"
 	sfi2pkeys "github.com/eyedeekay/sam-forwarder/i2pkeys"
@@ -349,9 +345,6 @@ func (s *SAMClientServerVPN) Serve() error {
 		return err
 	}
 	go s.whiteListingTunnel.Serve()
-	/*if err = firewall.ServerSetup(s.Config().TunName, "eth0"); err != nil {
-		return err
-	}*/
 	s.Tunnel.Run(ctx)
 
 	return nil

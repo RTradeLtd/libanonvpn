@@ -12,6 +12,7 @@ import (
 	samforwardervpn "github.com/RTradeLtd/libanonvpn/client"
 	samtunnelhandler "github.com/RTradeLtd/libanonvpn/ctrl"
 	samforwardervpnserver "github.com/RTradeLtd/libanonvpn/server"
+	"github.com/eyedeekay/canal/etc"
 	checki2p "github.com/eyedeekay/checki2cp"
 	i2pbrowserproxy "github.com/eyedeekay/httptunnel/multiproxy"
 	"github.com/eyedeekay/outproxy"
@@ -46,6 +47,18 @@ func lbMain(ctx context.Context) {
 			log.Fatal("Install or start i2p")
 		}
 	}
+	if *canal {
+		if *client {
+			if err := fwscript.Setup(*tunName); err != nil {
+				log.Fatal("Client firewall configuration error", err)
+			}
+		} else {
+			if err := fwscript.ServerSetup(*tunName, *gateName); err != nil {
+				log.Fatal("Server firewall configuration error", err)
+			}
+		}
+	}
+
 	config := &i2ptunconf.Conf{Config: goini.New()}
 	if *iniFile != "none" && *iniFile != "" {
 		config, err = i2ptunconf.NewI2PTunConf(*iniFile)
