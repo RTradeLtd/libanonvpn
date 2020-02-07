@@ -40,6 +40,10 @@ var (
 		"(Server Only) Output a client config file to the specified path")
 	startUp = flag.Bool("start", true,
 		"Start a tunnel with the passed parameters(Otherwise, they will be treated as default values).")
+	canal = flag.Bool("canal", true,
+		"Run the canal subcommand to configure firewall rules(Experimental).")
+	gateName = flag.String("string", "192.168.0.1",
+		"Gateway to forward requests recieved by the server with canal(Experimental)")
 )
 
 // I2P Options
@@ -58,8 +62,6 @@ var (
 		"Close tunnel after idle for a specified time(true or false).")
 	client = flag.Bool("client", true,
 		"Client mode(true or false).")
-	/*server = flag.Bool("server", true,
-	"Server mode(true or false).")*/
 	peoplehash = flag.String("hashhash", "",
 		"32-word mnemonic representing a .b32.i2p address(will output .b32.i2p address and quit)")
 	sigType = flag.String("signaturetype", "",

@@ -5,6 +5,7 @@ go 1.12
 require (
 	crawshaw.io/littleboss v0.0.0-20190317185602-8957d0aedcce
 	github.com/eyedeekay/accessregister v0.0.0-20190908214045-2f83369c289b
+	github.com/eyedeekay/canal v0.0.26
 	github.com/eyedeekay/checki2cp v0.0.0-20191027173419-138f1b4882b2
 	github.com/eyedeekay/go-i2cp v0.0.0-20190711020517-c0bce4e7b750 // indirect
 	github.com/eyedeekay/httptunnel v0.0.0-20191017011116-3b144b52941f

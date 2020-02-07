@@ -13,8 +13,6 @@ import (
 	"strings"
 	"syscall"
 
-	//"github.com/eyedeekay/canal/simplify"
-	//"github.com/eyedeekay/checki2cp"
 	i2ptunconf "github.com/eyedeekay/sam-forwarder/config"
 	"github.com/eyedeekay/sam-forwarder/hashhash"
 	sfi2pkeys "github.com/eyedeekay/sam-forwarder/i2pkeys"
@@ -334,35 +332,6 @@ func (s *SAMClientVPN) Serve() error {
 	if err := s.Tunnel.Setup(); err != nil {
 		return err
 	}
-	log.Println("firewall: Setting up routing tables")
-	/*	if err := firewall.FlushTables(); err != nil {
-		if !strings.HasPrefix(err.Error(), "firewall: Error flushing") {
-			return err
-		}
-	}*/
-	/*if check, err := checki2p.CheckI2PUserName(); err == nil {
-		log.Println("firewall: Tagging", check, "user firewall rules")
-		if err := firewall.Setup(localaddr.(*net.IPAddr).IP, remoteaddr.(*net.IPAddr).IP); err != nil {
-			log.Println("firewall: Error:", err.Error())
-			return err
-		}
-		log.Println("firewall: Adding", check, "to VPN Route")
-	} else {
-		log.Println("firewall: Error: router rule", err.Error())
-		return err
-	}
-	if check := checki2p.UserFind(); check != "" {
-		log.Println("firewall: Tagging", check, "user firewall rules")
-		if err := firewall.Setup(localaddr.(*net.IPAddr).IP, remoteaddr.(*net.IPAddr).IP); err != nil {
-			log.Println("firewall: Error:", err.Error())
-			return err
-		}
-		log.Println("firewall: Adding", check, "to VPN Route")
-		log.Println("firewall: Finished setting up routing tables")
-	} else {
-		log.Println("firewall: Error: user rule, user not found.")
-		return err
-	}*/
 	s.Tunnel.Run(ctx)
 	for {
 
