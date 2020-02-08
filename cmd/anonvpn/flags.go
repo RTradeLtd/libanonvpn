@@ -40,7 +40,7 @@ var (
 		"(Server Only) Output a client config file to the specified path")
 	startUp = flag.Bool("start", true,
 		"Start a tunnel with the passed parameters(Otherwise, they will be treated as default values).")
-	canal = flag.Bool("canal", true,
+	canal = flag.Bool("canal", false,
 		"Run the canal subcommand to configure firewall rules(Experimental).")
 	gateName = flag.String("string", "192.168.0.1",
 		"Gateway to forward requests recieved by the server with canal(Experimental)")
