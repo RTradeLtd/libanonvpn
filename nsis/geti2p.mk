@@ -22,9 +22,9 @@ url:
 	cat .geti2p.url | tr -d '\n' | tee nsis/geti2p.url
 	rm -f .geti2p.url
 
-LATEST_I2PD=$(shell gothub info -u purplei2p -r i2pd -j | grep tag_name | sed 's|tag_name||g' | tr -d ':, '| head -n 1 )
+LATEST_I2PD=2.29.0#$(shell gothub info -u purplei2p -r i2pd -j | grep tag_name | sed 's|tag_name||g' | tr -d ':, '| head -n 1 )
 
-LATEST_ZERO=$(shell gothub info -u i2p-zero -r i2p-zero -j | grep tag_name | sed 's|tag_name||g' | tr -d ':, '| head -n 1 )
+LATEST_ZERO=1.14#$(shell gothub info -u i2p-zero -r i2p-zero -j | grep tag_name | sed 's|tag_name||g' | tr -d ':, '| head -n 1 )
 
 zero: i2pzero.zip
 
