@@ -2,12 +2,11 @@
 libanonvpn ([home](/))
 ======================
 
-Lead Maintainer: [eyedeekay](https://github.com/eyedeekay)
-
 Library for providing and connecting to VPN's over the I2P network.
 Daemon, web client, and terminal client. This is an automatically
 configuring, automatically deploying, automatically multihopping
 pseudonymous VPN.
+
 
 Installation
 -------------
@@ -16,16 +15,6 @@ For now, the recommended way to install is with ```go get```
 
        go get -u -d -tags cli github.com/RTradeLtd/libanonvpn/cmd/anonvpn
 
-Development
------------
-
-  - To install the dependencies needed to build this locally run
-   `make dependencies` which will install:
-    - `libgtk-3-dev`
-    - `libwebkit2gtk-4.0-dev`
-    - `build-essential`
-    - `gomobile` which can be installed with `go get golang.org/x/mobile/cmd/gomobile`
-  - You will also need a valid installation of 'go 1.12.x'
 
 Example Usage
 -------------
@@ -52,6 +41,8 @@ Usage of ./cmd/anonvpn/anonvpn:
     	Type of access list to use, can be "whitelist" "blacklist" or "none". (default "none")
   -addr string
     	(client) IP address of virtual network interface (default "10.79.0.2")
+  -canal
+    	Run the canal subcommand to configure firewall rules(Experimental).
   -chromeuser string
     	user to run Chrome as, usually your desktop user (default "idk")
   -client
@@ -132,6 +123,8 @@ Usage of ./cmd/anonvpn/anonvpn:
     	Skip I2CP Port check for standalone router
   -start
     	Start a tunnel with the passed parameters(Otherwise, they will be treated as default values). (default true)
+  -string string
+    	Gateway to forward requests recieved by the server with canal(Experimental) (default "192.168.0.1")
   -username string
     	username for web admin panel (default "go-anonvpn")
   -webface

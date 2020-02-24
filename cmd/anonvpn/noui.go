@@ -20,6 +20,10 @@ func (s *App) Serve() bool {
 		go element.Serve()
 	}
 
+	if err := Canal(); err != nil {
+		return false
+	}
+
 	return Exit()
 }
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -45,17 +46,6 @@ func lbMain(ctx context.Context) {
 				log.Println("I2P may not be not installed. Please run with the -update parameter or start your router.")
 			}
 			log.Fatal("Install or start i2p")
-		}
-	}
-	if *canal {
-		if *client {
-			if err := fwscript.Setup(*tunName); err != nil {
-				log.Fatal("Client firewall configuration error", err)
-			}
-		} else {
-			if err := fwscript.ServerSetup(*tunName, *gateName); err != nil {
-				log.Fatal("Server firewall configuration error", err)
-			}
 		}
 	}
 
@@ -309,4 +299,19 @@ func ChownR(path string, uid, gid int) error {
 		}
 		return err
 	})
+}
+
+func Canal() error {
+	if *canal {
+		if *client {
+			if err := fwscript.Setup(*tunName); err != nil {
+				return fmt.Errorf("Client firewall configuration error", err)
+			}
+		} else {
+			if err := fwscript.ServerSetup(*tunName, *gateName); err != nil {
+				return fmt.Errorf("Server firewall configuration error", err)
+			}
+		}
+	}
+	return nil
 }
