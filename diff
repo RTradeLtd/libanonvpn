@@ -1,0 +1,38 @@
+diff --git a/cmd/anonvpn/flags.go b/cmd/anonvpn/flags.go
+index 8d28759..3ba7fcd 100644
+--- a/cmd/anonvpn/flags.go
++++ b/cmd/anonvpn/flags.go
+@@ -103,33 +103,3 @@ var (
+ 	skipi2cp = flag.Bool("skipi2cp", false,
+ 		"Skip I2CP Port check for standalone router")
+ )
+-
+-// Wallet Options
+-var (
+-	walletFile = flag.String("wallet", "vpnwallet.dat",
+-		"File to store the wallet in.")
+-	walletPass = flag.String("walletpass", "ChangeMe",
+-		"password to use for the wallet.")
+-	mnemonicLoad = flag.String("mnemonic", "",
+-		"Load or restore a wallet from the mnemonic string(Must be quoted).")
+-	walletProxy = flag.String("proxy", "i2p",
+-		"Proxy to use for the wallet connection.(Tor, i2p, or host:port).")
+-	networkType = flag.String("walletnet", "mainnet",
+-		"Which network to use the wallet on (mainnet, testnet, regtest).")
+-	bitcoin = flag.Bool("btc", true,
+-		"Use a bitcoin wallet, true by default(rationale=widely adopted).")
+-	bitcoinCash = flag.Bool("bch", false,
+-		"Use a bitcoin cash wallet.")
+-	zeroCash = flag.Bool("zec", true,
+-		"Use a zerocash wallet, true by default(rationale=mainstream privacy coin).")
+-	litecoin = flag.Bool("ltc", false,
+-		"Use a litecoin wallet.")
+-	ethereum = flag.Bool("eth", false,
+-		"Use an ethereum wallet.")
+-	serviceprice = flag.Int("rate", 0,
+-		"Set a payment requirement to authorize new clients")
+-	requirepass = flag.String("requirepass", "",
+-		"Require a password to request service information.")
+-	outProxy = flag.String("outproxy", "",
+-		"Configure a SOCKS outproxy with your wallet proxy(i2p mode)")
+-)

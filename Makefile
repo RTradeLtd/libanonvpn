@@ -90,7 +90,7 @@ zip:
 winlicense:
 	cat client/LICENSE.md server/LICENSE.md | unix2dos | tee LICENSES.txt
 
-nsis:geti2p windows windows-32 winstall
+nsis:geti2p windows windows32 winstall
 winstall: winlicense tuntap
 	makensis nsis/installer.nsi
 
