@@ -1,3 +1,4 @@
+*.tgz
 codecov.yml
 cvpnserver.ini
 davpn.ico
@@ -16,7 +17,9 @@ RELEASE.md
 rtrade-testserver.ini
 Makefile
 cmd/anonvpn/anonvpn
-
+cmd/anonvpn/anonvpn.exe
+cmd/anonvpn/anonvpn-32.exe
 cmd/anonvpn/anonvpn-gui
-
 cmd/anonvpn/anonvpn-nostatic
+cmd/anonvpn/anonvpn.apk
+cmd/anonvpn/anonvpn-osx
