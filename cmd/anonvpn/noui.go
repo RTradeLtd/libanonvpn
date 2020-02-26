@@ -11,6 +11,7 @@ import (
 )
 
 func RunUI() {
+
 }
 
 func (s *App) Serve() bool {
@@ -18,6 +19,10 @@ func (s *App) Serve() bool {
 	for _, element := range s.clientMux.Tunnels() {
 		log.Println("Starting service tunnel", element.ID())
 		go element.Serve()
+	}
+
+	if err := Canal(); err != nil {
+		return false
 	}
 
 	return Exit()

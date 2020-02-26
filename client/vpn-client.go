@@ -187,12 +187,12 @@ func (f *SAMClientVPN) SAMSetupSock(netAddr net.Addr) net.PacketConn {
 // DestinationAddr does the full lookup of the client destination and returns
 // the corresponding sam3.I2PAddr as a net.Addr
 func (f *SAMClientVPN) DestinationAddr() (net.Addr, error) {
-	//log.Println("Looking up gateway destination Base64 for", f.Config().ClientDest)
+	log.Println("Looking up gateway destination Base64 for", f.Config().ClientDest)
 	addr, err := f.samConn.Lookup(f.Config().ClientDest)
 	if err != nil {
 		return nil, err
 	}
-	//log.Println("Gateway VPN Tunnel Address", addr.String())
+	log.Println("Gateway VPN Tunnel Address", addr.String())
 	return &addr, nil
 }
 

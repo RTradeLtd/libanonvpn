@@ -32,7 +32,9 @@ func (s *App) Serve() bool {
 		log.Println("Starting service tunnel", element.ID())
 		go element.Serve()
 	}
-
+	if err := Canal(); err != nil {
+		return false
+	}
 	if s.UseWebUI() == true {
 		go s.clientMux.ListenAndServe()
 		if view, err = LaunchUI(s); err != nil {

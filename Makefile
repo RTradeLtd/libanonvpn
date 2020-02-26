@@ -7,11 +7,11 @@ modtidy:
 	go mod tidy
 
 tap:
-	wget -O wintap.exe https://build.openvpn.net/downloads/releases/latest/tap-windows-latest-stable.exe
+	wget -O nsis/wintap.exe https://build.openvpn.net/downloads/releases/latest/tap-windows-latest-stable.exe
 
 tun:
-	wget -O wintun.msi https://github.com/meshsocket/WintunInstaller/releases/download/0.6/wintun-amd64-0.6.msi
-	wget -O wintun32.msi https://github.com/meshsocket/WintunInstaller/releases/download/0.6/wintun-x86-0.6.msi
+	wget -O nsis/wintun.msi https://github.com/meshsocket/WintunInstaller/releases/download/0.6/wintun-amd64-0.6.msi
+	wget -O nsis/wintun32.msi https://github.com/meshsocket/WintunInstaller/releases/download/0.6/wintun-x86-0.6.msi
 
 tuntap: tun tap
 
@@ -90,19 +90,11 @@ zip:
 winlicense:
 	cat client/LICENSE.md server/LICENSE.md | unix2dos | tee LICENSES.txt
 
-nsis:geti2p winstall china-winstall
+nsis:geti2p windows windows32 winstall
 winstall: winlicense tuntap
-	makensis installer.nsi
+	makensis nsis/installer.nsi
 
-china: reseed
-	cp i2pd.conf i2pd.conf.bak
-	cp i2pd-china.conf i2pd.conf
-
-china-winstall: china winlicense tuntap
-	makensis installer-china.nsi
-	cp i2pd.conf.bak i2pd.conf
-
--include geti2p.mk
+-include nsis/geti2p.mk
 
 fmt: go-fmt
 
