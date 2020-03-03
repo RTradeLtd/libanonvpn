@@ -18,7 +18,7 @@ require (
 	github.com/kardianos/service v1.0.0
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/zieckey/goini v0.0.0-20180118150432-0da17d361d26
-	github.com/zserge/lorca v0.1.8
+	github.com/zserge/lorca v0.1.9
 	github.com/zserge/webview v0.0.0-20190123072648-16c93bcaeaeb
 	golang.org/x/crypto v0.0.0-20191122220453-ac88ee75c92c // indirect
 	golang.org/x/mobile v0.0.0-20191002175909-6d0d39b2ca82
