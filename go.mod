@@ -12,7 +12,7 @@ require (
 	github.com/eyedeekay/outproxy v0.0.0-20190908174238-22bd71d43733
 	github.com/eyedeekay/portcheck v0.0.0-20190218044454-bb8718669680
 	github.com/eyedeekay/sam-forwarder v0.32.1
-	github.com/eyedeekay/sam3 v0.32.2
+	github.com/eyedeekay/sam3 v0.32.3
 	github.com/eyedeekay/udptunnel v0.0.92
 	github.com/justinas/nosurf v0.0.0-20190416172904-05988550ea18
 	github.com/kardianos/service v1.0.0
@@ -22,7 +22,6 @@ require (
 	github.com/zserge/webview v0.0.0-20190123072648-16c93bcaeaeb
 	golang.org/x/crypto v0.0.0-20191122220453-ac88ee75c92c // indirect
 	golang.org/x/mobile v0.0.0-20191002175909-6d0d39b2ca82
-	golang.org/x/net v0.0.0-20191126235420-ef20fe5d7933 // indirect
 	golang.org/x/sys v0.0.0-20191128015809-6d18c012aee9 // indirect
 )
 
