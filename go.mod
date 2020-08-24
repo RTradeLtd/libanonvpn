@@ -12,7 +12,7 @@ require (
 	github.com/eyedeekay/outproxy v0.0.0-20190908174238-22bd71d43733
 	github.com/eyedeekay/portcheck v0.0.0-20190218044454-bb8718669680
 	github.com/eyedeekay/sam-forwarder v0.32.1
-	github.com/eyedeekay/sam3 v0.32.2
+	github.com/eyedeekay/sam3 v0.32.3
 	github.com/eyedeekay/udptunnel v0.0.92
 	github.com/justinas/nosurf v0.0.0-20190416172904-05988550ea18
 	github.com/kardianos/service v1.1.0
