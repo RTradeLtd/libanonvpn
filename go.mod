@@ -15,14 +15,13 @@ require (
 	github.com/eyedeekay/sam3 v0.32.3
 	github.com/eyedeekay/udptunnel v0.0.92
 	github.com/justinas/nosurf v0.0.0-20190416172904-05988550ea18
-	github.com/kardianos/service v1.1.0
+	github.com/kardianos/service v1.2.0
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/zieckey/goini v0.0.0-20180118150432-0da17d361d26
 	github.com/zserge/lorca v0.1.9
 	github.com/zserge/webview v0.0.0-20190123072648-16c93bcaeaeb
 	golang.org/x/crypto v0.0.0-20191122220453-ac88ee75c92c // indirect
 	golang.org/x/mobile v0.0.0-20191002175909-6d0d39b2ca82
-	golang.org/x/sys v0.0.0-20191128015809-6d18c012aee9 // indirect
 )
 
 replace github.com/eyedeekay/gosam v0.1.1-0.20190705071001-d8c0f81c783e => github.com/eyedeekay/goSam v0.1.1-0.20190705071001-d8c0f81c783e
